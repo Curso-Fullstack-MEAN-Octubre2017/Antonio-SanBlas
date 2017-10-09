@@ -7,6 +7,29 @@ var bodyParser = require('body-parser');
 
 //var sample = require('./routes/sample');
 
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/petStore',{useMongoClient:true});
+
+//var Customer = require('./routes/customers.json');
+
+Customer = require('./models/customers');
+
+const customer = new Customer({"firstName":"oscar",
+	"lastName":"Perez",
+	"mail":"oscarperez@ejemplo.es",
+	"phone":"981222333",
+	"dni":"48454748T",
+	"note":"Nada en particular"});
+
+customer.save((err) => {
+            if (err) {
+                console.log(err);
+            } else {
+                console.log(customer);
+            }
+        })
+
+
 var app = express();
 
 // view engine setup
