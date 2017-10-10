@@ -9,26 +9,12 @@ var bodyParser = require('body-parser');
 
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/petStore',{useMongoClient:true});
+const router = express.Router();
+
+var test =require("./routes/customer-managament.js")(router);
+
 
 //var Customer = require('./routes/customers.json');
-
-Customer = require('./models/customers');
-
-const customer = new Customer({"firstName":"oscar",
-	"lastName":"Perez",
-	"mail":"oscarperez@ejemplo.es",
-	"phone":"981222333",
-	"dni":"48454748T",
-	"note":"Nada en particular"});
-
-customer.save((err) => {
-            if (err) {
-                console.log(err);
-            } else {
-                console.log(customer);
-            }
-        })
-
 
 var app = express();
 
@@ -45,7 +31,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //// Nuevas Rutas van aqui:
-//app.use('/sample', sample);
+app.use('/api',test );
 
 //Front End
 app.all("*", (req, res) => {

@@ -1,0 +1,20 @@
+<h1>Lista de clientes</h1>
+<div class="buscador">
+	<h2>Buscar:</h2>
+	<input type="text" ng-model="buscar"></input>
+</div>
+<table>
+	<tr>
+		<th>Nombre</th>
+		<th>Apellido</th>
+		<th></th>
+	</tr>
+	<tr ng-repeat="data in datos|filter:buscar">
+		<td>{{data.firstName}}</td>
+		<td>{{data.lastName}}</td>
+		<td><a ng-href="customer/{{data._id}}">Ver mas</a></td>
+	</tr>
+</table>
+
+<a ng-href="customer">Crear cliente</a>
+
