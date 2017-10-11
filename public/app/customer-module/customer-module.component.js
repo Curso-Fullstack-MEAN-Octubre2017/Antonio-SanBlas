@@ -11,5 +11,3 @@ angular.module('customerModule')
          	
         }
     });
-
-    

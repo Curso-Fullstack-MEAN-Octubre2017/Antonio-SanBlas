@@ -11,7 +11,36 @@ module.exports = (router) =>{
 			}
 		});
 		})
+		
+	router.get('/customer/:_id', (req, res) => {
+		var iden=req.params.id;
+		console.log(iden + 'Funciono')
+		Customer.find('',(err, customers) => {
+			if (err) {
+				console.error(err);
+			} else {
+				res.json(customers);
+			}
+		});
+		})
+	router.post('/customer', (req, res) => {
+		   
+		   var customer = new Customer();
+		   var params = req.body;
+		   console.log(params);
+		   customer.dni = params.dni;
+		   customer.firstName = params.firstName;
+		   customer.lastName = params.lastName;
+		   customer.phone = params.phone;
+		   customer.mail = params.mail;
+		   customer.note = params.note;
+		   
+		   customer.save((err, customerStored) => {
+		   res.status(200).send({customer: customerStored});
 
+		   });
+		
+		})
 
 /*
 var sampleCustomer = {

@@ -14,7 +14,10 @@ angular.module('petStore')
                 template: "<customer-module></customer-module>"
             })
             .when("/customer",{
-                template: ""
+                template: "<customer-new-module></customer-new-module>"
+            })
+            .when("/customer/:_id",{
+                template: "<customer-new-module></customer-new-module>"
             })
             .otherwise({
                 template: "Other"
