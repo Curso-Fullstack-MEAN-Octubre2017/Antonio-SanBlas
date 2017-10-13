@@ -1,26 +1,24 @@
 <h1>Clientes</h1>
 
-<table id="newCustomer">
+<table id="newCustomer" >
 	<tr>
-	<td>Nombre: </td><td><input type="text" ng-model="firstName"></input></td>
+	<td>Nombre: </td><td><input type="text" ng-model="datos.firstName" ></input></td>
 	</tr>
 	<tr>
-	<td>Apellido: </td><td><input type="text" ng-model="lastName"></input></td>
+	<td>Apellido: </td><td><input type="text" ng-model="datos.lastName"></input></td>
 	</tr>
 	<tr>
-	<td>Email: </td><td><input type="email" ng-model="mail"></input></td>
+	<td>Email: </td><td><input type="email" ng-model="datos.mail"></input></td>
 	</tr>
 	<tr>
-	<td>Telefono: </td><td><input type="tel" ng-model="phone"></input></td>
+	<td>Telefono: </td><td><input type="tel" ng-model="datos.phone"></input></td>
 	</tr>
 	<tr>
-	<td>Dni: </td><td><input type="text" ng-model="dni"></input></td>
+	<td>Dni: </td><td><input type="text" ng-model="datos.dni"></input></td>
 	</tr>
 	<tr>
-	<td>nota: </td><td><input type="text" ng-model="note"></input></td>
+	<td>nota: </td><td><input type="text" ng-model="datos.note"></input></td>
 	</tr>
 	<tr><td colspan="2"><button value="Guardar Cliente" ng-click="mandarDatos()" >Guardar cliente</button></td></tr>
 </table>
-
-<!-- <a ng-href="customer">Crear cliente</a> -->
 

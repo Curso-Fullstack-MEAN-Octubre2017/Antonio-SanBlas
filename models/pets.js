@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 const Schema = mongoose.Schema;
 
-const clientSchema = new Schema({
+const petSchema = new Schema({
 	
 	firstName:{type:String},
 	lastName:{type:String},
@@ -13,4 +13,3 @@ const clientSchema = new Schema({
 	note:{type:String}
 });
 module.exports = mongoose.model('Customer',clientSchema);
-
