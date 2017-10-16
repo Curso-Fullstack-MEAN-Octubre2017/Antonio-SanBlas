@@ -11,8 +11,8 @@ var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/petStore',{useMongoClient:true});
 const router = express.Router();
 
-var test =require("./routes/customer-managament.js")(router);
-
+var customer =require("./routes/customer-managament.js")(router);
+var pet =require("./routes/pet-managament.js")(router);
 
 //var Customer = require('./routes/customers.json');
 
@@ -31,7 +31,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //// Nuevas Rutas van aqui:
-app.use('/api',test );
+app.use('/api',customer );
+app.use('/api',pet );
 
 //Front End
 app.all("*", (req, res) => {

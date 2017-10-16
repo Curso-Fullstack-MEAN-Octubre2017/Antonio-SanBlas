@@ -6,8 +6,9 @@ angular.module('customerNewModule')
         controller: function($scope, $http,$location,$routeParams) {
         	
         $http.get('api/customer/'+$routeParams.id).then(function(response){
-        	$scope.datos=response.data;	
-    	 	
+        	console.log('entro')
+            	$scope.datos=response.data;	
+
     	 });	
         	
         $scope.mandarDatos=function(){

@@ -1,0 +1,33 @@
+<h1>Mascota</h1>
+<table id="newPet" >
+	<tr>
+	<td>Nombre: </td><td><input type="text" ng-model="datosPet.name" ></input></td>
+	</tr>
+	<tr>
+	<td>Fecha nacimiento: </td><td><input type="text" ng-model="datosPet.birthday | date: dd/MM/y"></input></td>
+	</tr>
+	<tr>
+	<td>Especie: </td><td><input type="text" ng-model="datosPet.species"></input></td>
+	</tr>
+	<tr>
+	<td>Raza: </td><td><input type="text" ng-model="datosPet.race"></input></td>
+	</tr>
+	<tr>
+	<td>Sexo: </td><td><input type="text" ng-model="datosPet.sex"></input></td>
+	</tr>
+	<tr>
+	<td>Foto: </td><td><input type="text" ng-model="datosPet.photoURL"></input></td>
+	</tr>
+	<tr>
+	<td>Numero de Chip: </td><td><input type="text" ng-model="datosPet.chipNumber"></input></td>
+	</tr>
+	<tr>
+	<td>Descripcion: </td><td><input type="text" ng-model="datosPet.description"></input></td>
+	</tr>
+	<tr>
+	<td></td><td><input type="hidden" ng-model="datosPet.ownerID"></input></td>
+	</tr>
+	<tr ng-if='(datosPet.ownerID)'><td colspan="2"><button value="Guardar mascota" ng-click="datosMascota()" >Guardar cliente</button></td></tr>
+	<tr ng-if='(!datosPet.ownerID)'><td colspan="2"><button value="Guardar mascota" ng-click="crearMascota()" >Crear cliente</button></td></tr>
+</table>
+

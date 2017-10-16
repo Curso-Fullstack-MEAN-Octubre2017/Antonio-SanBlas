@@ -1,0 +1,11 @@
+<h1>Lista de mascotas</h1>
+
+<ul ng-repeat="pet in datosPet">
+	<li>Nombre: {{pet.name}}</li>
+	<li>Especie: {{pet.species}}</li>
+	<li>Raza: {{pet.race}}</li>
+	<li>Sexo: {{pet.sex }}</li>
+	<li><a ng-href="/pet/{{pet._id}}">Ver mas</a></li>
+	
+</ul>
+
