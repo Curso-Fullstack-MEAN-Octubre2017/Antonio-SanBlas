@@ -4,7 +4,7 @@
 	<td>Nombre: </td><td><input type="text" ng-model="datosPet.name" ></input></td>
 	</tr>
 	<tr>
-	<td>Fecha nacimiento: </td><td><input type="text" ng-model="datosPet.birthday | date: dd/MM/y"></input></td>
+	<td>Fecha nacimiento: </td><td><input type="text" ng-model="datosPet.birthday "></input></td>
 	</tr>
 	<tr>
 	<td>Especie: </td><td><input type="text" ng-model="datosPet.species"></input></td>
@@ -27,7 +27,7 @@
 	<tr>
 	<td></td><td><input type="hidden" ng-model="datosPet.ownerID"></input></td>
 	</tr>
-	<tr ng-if='(datosPet.ownerID)'><td colspan="2"><button value="Guardar mascota" ng-click="datosMascota()" >Guardar cliente</button></td></tr>
-	<tr ng-if='(!datosPet.ownerID)'><td colspan="2"><button value="Guardar mascota" ng-click="crearMascota()" >Crear cliente</button></td></tr>
+	<tr ng-if='(datosPet.ownerID)'><td colspan="2"><button value="Guardar mascota" ng-click="datosMascota()" >Guardar mascota</button></td></tr>
+	<tr ng-if='(!datosPet.ownerID)'><td colspan="2"><button value="Guardar mascota" ng-click="crearMascota()" >Crear mascota</button></td></tr>
 </table>
 

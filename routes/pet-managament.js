@@ -61,12 +61,11 @@ module.exports = (router) =>{
 			if (err) {
 				console.error(err);
 			} else {
-				//res.json(petStored);
 				Pet.find((err, pets) => {
 					if (err) {
 						console.error(err);
 					} else {
-						res.json(pets);
+						res.json(petStored);
 					}
 				})
 			}

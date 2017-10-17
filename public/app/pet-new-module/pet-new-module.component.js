@@ -11,7 +11,7 @@ angular.module('petNewModule')
         	 });
         	$scope.datosMascota=function(){
         		
-        			console.log('put')
+        			console.log('put mascota')
         			$http.put('/api/pet/'+$routeParams.id,{
             			"name": $scope.datosPet.name,
             			"birthday": $scope.datosPet.birthday,
@@ -26,8 +26,8 @@ angular.module('petNewModule')
 	
         		}
         	$scope.crearMascota=function(){
-        			console.log('post')
-        			$http.post('/api/petNew/'+$routeParams.id,{
+        			console.log('post mascota')
+        			$http.post('/api/pet/'+$routeParams.id,{
         				"name": $scope.datosPet.name,
             			"birthday": $scope.datosPet.birthday,
             			"species": $scope.datosPet.species,
@@ -39,9 +39,9 @@ angular.module('petNewModule')
             			"ownerID": $routeParams.id
         		})
         		
-        		
+        		$location.path('/customer/'+$routeParams.id);
         	}
-        		$location.path('/customer/'+$scope.datosPet.ownerID);
+        		
         	}
         	
     	});

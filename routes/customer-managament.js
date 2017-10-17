@@ -26,15 +26,7 @@ module.exports = (router) =>{
 	router.post('/customer', (req, res) => {
 		   console.log('postModelo')
 		    var params = req.body;
-		   console.log(params)
-		   var customer = new Customer({
-			   dni : params.dni,
-			   firstName : params.firstName,
-			   lastName : params.lastName,
-			   phone : params.phone,
-			   mail : params.mail,
-			   note : params.note
-		   });
+		   var customer = new Customer(req.body);
 		   customer.save((err, customerStored) => {
 		   res.status(200).send({customer: customerStored});
 		   console.log(err)

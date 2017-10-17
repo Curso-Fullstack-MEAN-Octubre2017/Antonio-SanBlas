@@ -6,7 +6,6 @@ angular.module('customerNewModule')
         controller: function($scope, $http,$location,$routeParams) {
         	
         $http.get('api/customer/'+$routeParams.id).then(function(response){
-        	console.log('entro')
             	$scope.datos=response.data;	
 
     	 });	
@@ -14,25 +13,11 @@ angular.module('customerNewModule')
         $scope.mandarDatos=function(){
         		if($routeParams.id){
         			console.log('put')
-        			$http.put('/api/customer/'+$routeParams.id,{
-            			"firstName": $scope.datos.firstName,
-            			"lastName": $scope.datos.lastName,
-            			"mail": $scope.datos.mail,
-            			"phone": $scope.datos.phone,
-            			"dni":$scope.datos.dni,
-            			"note": $scope.datos.note
-            		})
+        			$http.put('/api/customer/'+$routeParams.id,$scope.datos)
 	
         		}else{
         			console.log('post')
-        			$http.post('/api/customer',{
-        			"firstName": $scope.datos.firstName,
-        			"lastName": $scope.datos.lastName,
-        			"mail": $scope.datos.mail,
-        			"phone": $scope.datos.phone,
-        			"dni":$scope.datos.dni,
-        			"note": $scope.datos.note
-        		})
+        			$http.post('/api/customer',$scope.datos)
         		}
         		$location.path('/customers')
         	}

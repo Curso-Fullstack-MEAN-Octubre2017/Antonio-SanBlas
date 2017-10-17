@@ -5,6 +5,9 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+
+
+
 //var sample = require('./routes/sample');
 
 var mongoose = require('mongoose');
@@ -13,6 +16,7 @@ const router = express.Router();
 
 var customer =require("./routes/customer-managament.js")(router);
 var pet =require("./routes/pet-managament.js")(router);
+var appointment = require("./routes/appointment-managament.js")(router);
 
 //var Customer = require('./routes/customers.json');
 
@@ -33,6 +37,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //// Nuevas Rutas van aqui:
 app.use('/api',customer );
 app.use('/api',pet );
+app.use('/api',appointment );
 
 //Front End
 app.all("*", (req, res) => {
