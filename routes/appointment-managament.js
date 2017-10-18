@@ -52,27 +52,46 @@ module.exports = (router) =>{
 
 		});
 	
-	router.get('/appointment/:month', (req, res) => {
+	router.get('/appointments/:month', (req, res) => {
 		
-		
-		var year=moment(req.body.fecha_inicio).format('YYYY');
-		var month=moment(req.body.fecha_inicio).format('MM');
-		var day=moment(req.body.fecha_inicio).format('DD');
-		
-		Appointment.find({},(err, appointment).where('fecha_inicio') => {
+		var from = req.params.month;
+	    var to = req.params.month;
+
+	    from = moment(from, "YYYYMM");
+	    to = moment(to, 'YYYYMM').add(1,'M')
+	    to.subtract(1,'day');
+	    
+	    console.log(from);
+	    console.log(to);
+	    
+	    Appointment.find({fecha_inicio:{$gt: from, $lt: to}},(err, appointment) => {
 			if (err) {
 				console.error(err);
 			} else {
 				res.json(appointment);
 			}
-		});
 		})
-	
-	
-	
-	
-	
-	
+		})
+		
+		
+	router.get('/appointments2',(req,res)=>{
+						
+		Appointment.find({},'fecha_inicio fecha_fin pet',(err, appointments) => {
+            if (err) {
+                res.json({ success: false, message: err });
+            } else {
+                res.json(appointments);
+            }
+		}).populate({
+			  path:'Pet',
+			  model:'Pet',
+			  select:'name species'
+		  })
+	})
+		
+		
+		
+			
 	return router;
 
 }
