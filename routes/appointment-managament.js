@@ -55,46 +55,38 @@ module.exports = (router) =>{
 	router.get('/appointments/:month', (req, res) => {
 		
 		var initdate = req.params.month;
-	    var enddate = req.params.month;
+	    var endDate = req.params.month;
 
-	    initdate = moment(initdate, "YYYYMM");
-	    enddate = moment(enddate, 'YYYYMM').add(1,'M')
-	    enddate.subtract(1,'day');
-	    
-	    console.log(initdate);
-	    console.log(enddate);
-	    
-	    Appointment.aggregate([
-	    	{
-	    		"$match":{
-	    			$gte : new Date(initdate),
-	    			$lte : new Date(enddate)
-	    		}
-	    	},
-	    	{
-	    		"$group":{
-	    			_id:{$dayOfYear:"$from"},
-	    			date: {"$first":"$from"},
-	    			total:{$sum:1}
-	    		}
-	    	}
-	    ],function(err,appointment){
-	    	if (err) {
-				console.error(err);
-			} else {
-				console.log(appointment);
-				
-			}
-	    }
-	    )
-	    
-	    /** Appointment.find({fecha_inicio:{$gt: from, $lt: to}},'fecha_inicio fecha_fin pet',(err, appointment) => {
+	    initdate = moment(initdate, "YYYYMM").toDate();
+	    endDate = moment(endDate, 'YYYYMM').add(1,'M').toDate();
+	    console.log(initdate)
+		console.log(endDate)
+	   Appointment.find({fecha_inicio:{$gte: initdate, $lte: endDate}},(err, appointment) => {
 			if (err) {
-				console.error(err);
-			} else {
-				res.json(appointment);
+				res.json(err)
+			} else{
+				var appointmentDate = appointment.reduce(function (mapa, item) {
+					
+					var date=moment(item.fecha_inicio).format('YYYY-MM-DD');
+					var time=moment(item.fecha_inicio).utc().format('HH:mm');
+					
+					console.log(date)
+					console.log(time)
+					
+					if(!mapa) 
+						var mapa={};
+					
+					if (!mapa[date]) 	
+						mapa[date] = {};
+					  	
+	                if (!mapa[date][time])      	
+	                	mapa[date][time] = item;
+	                	
+	                return mapa;
+				},{})
+				res.json(appointmentDate);
 			}
-		}).populate({
+			}).populate({
 			  path:'pet',
 			  model:'Pet',
 			  select:'name species',
@@ -103,10 +95,8 @@ module.exports = (router) =>{
 		           model: 'Customer',
 		           select: 'firstName lastName'
 		     }
-		  })**/
+		  }).sort({'initdate': 1})
 		})
-		
-		
 		
 		router.get('/appointments/:month/:day', (req, res) => {
 		
@@ -114,8 +104,7 @@ module.exports = (router) =>{
 	    var to = req.params.day;
 	    to = from +''+to;
 	    from = moment(to, "YYYYMMDD");
-	    to = moment(to, "YYYYMMDD").add(1,'day')
-	    to.subtract(1,'minute');;
+	    to = moment(to, "YYYYMMDD").add(1,'day');
 	    console.log(from);
 	    console.log(to);
 	    Appointment.find({fecha_inicio:{$gt: from, $lt: to}},'fecha_inicio fecha_fin pet',(err, appointment) => {
