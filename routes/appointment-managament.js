@@ -16,7 +16,7 @@ module.exports = (router) =>{
 		});
 	})
 	
-	router.get('/appointment/:id', (req, res) => {
+	router.get('/appointments/:id', (req, res) => {
 
 		Appointment.findById(req.params.id,(err, appointment) => {
 			if (err) {
@@ -25,42 +25,40 @@ module.exports = (router) =>{
 				res.json(appointment);
 			}
 		});
-		})
+	})
 		
-		router.post('/appointment', (req, res) => {
-		   //var fecha=moment(req.body.fecha_inicio).format('YYYYMM');
-		   //var month = moment(fecha,"MMMM");
-		   //console.log(fecha);
-		   
+		router.post('/appointments', (req, res) => {
+		
 		   var params = req.body;
 		   var appointment = new Appointment(params);
 		   appointment.save((err, appointmentStored) => {
-		   res.status(200).send({appointment: appointmentStored});
-		   console.log(err)
+			   res.status(200).send({appointment: appointmentStored});
+			   console.log(err)
 		   });
 		
 		})
 		
-		router.put('/appointment/:id', (req, res) => {
+		router.put('/appointments/:id', (req, res) => {
 			Appointment.findOneAndUpdate({_id :req.params.id},req.body,{upsert: true},(err, appointmentStored) => {
-			if (err) {
-				console.error(err);
-			} else {
-				res.json(appointmentStored);
-			}
-		});
+				if (err) {
+					console.error(err);
+				} else {
+					res.json(appointmentStored);
+				}
+			});
 
 		});
 	
-	router.get('/appointments/:month', (req, res) => {
+	router.get('/appointments/:from/:to', (req, res) => {
 		
-		var initdate = req.params.month;
-	    var endDate = req.params.month;
-
+		var initdate = req.params.from;
+	    var endDate = req.params.to;
+	    
+	    
+	    
 	    initdate = moment(initdate, "YYYYMM").toDate();
 	    endDate = moment(endDate, 'YYYYMM').add(1,'M').toDate();
-	    console.log(initdate)
-		console.log(endDate)
+
 	   Appointment.find({fecha_inicio:{$gte: initdate, $lte: endDate}},(err, appointment) => {
 			if (err) {
 				res.json(err)
@@ -69,10 +67,7 @@ module.exports = (router) =>{
 					
 					var date=moment(item.fecha_inicio).format('YYYY-MM-DD');
 					var time=moment(item.fecha_inicio).utc().format('HH:mm');
-					
-					console.log(date)
-					console.log(time)
-					
+			
 					if(!mapa) 
 						var mapa={};
 					
@@ -97,34 +92,8 @@ module.exports = (router) =>{
 		     }
 		  }).sort({'initdate': 1})
 		})
-		
-		router.get('/appointments/:month/:day', (req, res) => {
-		
-		var from = req.params.month;
-	    var to = req.params.day;
-	    to = from +''+to;
-	    from = moment(to, "YYYYMMDD");
-	    to = moment(to, "YYYYMMDD").add(1,'day');
-	    console.log(from);
-	    console.log(to);
-	    Appointment.find({fecha_inicio:{$gt: from, $lt: to}},'fecha_inicio fecha_fin pet',(err, appointment) => {
-			if (err) {
-				console.error(err);
-			} else {
-				res.json(appointment);
-			}
-		}).populate({
-			  path:'pet',
-			  model:'Pet',
-			  select:'name species',
-			  populate: {
-		           path: 'owner',
-		           model: 'Customer',
-		           select: 'firstName lastName'
-		     }
-		  })
-		})
-		
+	
+		console.log('entro')
 		
 
 			
