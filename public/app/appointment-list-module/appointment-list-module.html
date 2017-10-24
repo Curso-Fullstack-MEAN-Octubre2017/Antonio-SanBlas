@@ -1,0 +1,34 @@
+<div class='horario'>
+
+	<div class='cita' ng-repeat='citas in appointment'>
+		{{citas.hora}}
+		<div ng-if='citas.datos.pet.name'>
+			Mascota:{{citas.datos.pet.name}}</br>
+			Especie:{{citas.datos.pet.species}}<br/>
+			Due&ntilde;o:{{citas.datos.pet.owner.firstName}} {{citas.datos.pet.owner.lastName}}<br/>
+			<a ng-href="/appointmentsDetail/{{citas.datos.fecha_inicio | date : 'yyyyMMdd'}}" >Ver detalles</a>
+		</div>
+		<div ng-if='!citas.datos.pet.name'>No hay citas</div>
+	
+	</div>
+	
+	<!-- <appointment-detail-module></appointment-detail-module> -->
+
+</div>
+
+<style>
+
+.horario{
+	position:relative;
+	width:300px;
+}
+
+.cita{border:1px solid blue;
+		width:98%;
+		height:80px;}
+
+a{
+	position:absolute;
+	right:3%;
+}
+</style>

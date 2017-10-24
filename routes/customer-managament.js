@@ -10,7 +10,7 @@ module.exports = (router) =>{
 				res.json(customers);
 			}
 		});
-		})
+	})
 		
 	router.get('/customer/:id', (req, res) => {
 		
@@ -22,19 +22,19 @@ module.exports = (router) =>{
 				res.json(customers);
 			}
 		});
-		})
+	})
 	router.post('/customer', (req, res) => {
-		   console.log('postModelo')
-		    var params = req.body;
-		   var customer = new Customer(req.body);
-		   customer.save((err, customerStored) => {
-		   res.status(200).send({customer: customerStored});
-		   console.log(err)
-		   });
+		console.log('postModelo')
+		var params = req.body;
+		var customer = new Customer(req.body);
+		customer.save((err, customerStored) => {
+			res.json(customerStored);
+			console.log(err)
+		});
 		
-		})
+	})
 		
-		router.put('/customer/:id', (req, res) => {
+	router.put('/customer/:id', (req, res) => {
 		Customer.findOneAndUpdate({_id :req.params.id},req.body,{upsert: true},(err, customerStored) => {
 			if (err) {
 				console.error(err);
@@ -50,6 +50,7 @@ module.exports = (router) =>{
 		});
 
 	});
+	
 	router.delete('/customerDel/:id', (req, res) => {
 		console.log(req.params.id);
 		
@@ -58,7 +59,7 @@ module.exports = (router) =>{
 				  console.error(err);
 			  else
 				  res.json({ha:'funcionado'});
-			});	
+		});	
 	})
 
 

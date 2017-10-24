@@ -29,8 +29,14 @@ angular.module('petStore')
             .when("/pet/:id",{
                 template: "<pet-new-module></pet-new-module>"
             })
-            .when("/appointments/:month",{
+            .when("/appointments/:from/:to",{
                 template: "<appointment-module></appointment-module>"
+            })
+            .when("/appointmentsList/:date",{
+                template: "<appointment-list-module></appointment-list-module>"
+            })
+            .when("/appointmentsDetail/:date",{
+                template: "<appointment-detail-module></appointment-detail-module>"
             })
            
             .otherwise({

@@ -11,16 +11,16 @@ angular.module('customerNewModule')
     	 });	
         	
         $scope.mandarDatos=function(){
-        		if($routeParams.id){
-        			console.log('put')
-        			$http.put('/api/customer/'+$routeParams.id,$scope.datos)
+        	if($routeParams.id){
+        		console.log('put')
+        		$http.put('/api/customer/'+$routeParams.id,$scope.datos)
 	
-        		}else{
-        			console.log('post')
-        			$http.post('/api/customer',$scope.datos)
-        		}
-        		$location.path('/customers')
+        	}else{
+        		console.log('post')
+        		$http.post('/api/customer',$scope.datos)
         	}
+        	$location.path('/customers')
+        }
         
         
 	    

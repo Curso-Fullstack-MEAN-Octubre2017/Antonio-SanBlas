@@ -27,39 +27,37 @@ module.exports = (router) =>{
 		});
 	})
 		
-		router.post('/appointments', (req, res) => {
+	router.post('/appointments', (req, res) => {
 		
-		   var params = req.body;
-		   var appointment = new Appointment(params);
-		   appointment.save((err, appointmentStored) => {
-			   res.status(200).send({appointment: appointmentStored});
-			   console.log(err)
-		   });
-		
-		})
-		
-		router.put('/appointments/:id', (req, res) => {
-			Appointment.findOneAndUpdate({_id :req.params.id},req.body,{upsert: true},(err, appointmentStored) => {
-				if (err) {
-					console.error(err);
-				} else {
-					res.json(appointmentStored);
-				}
-			});
-
+		var params = req.body;
+		var appointment = new Appointment(params);
+		appointment.save((err, appointmentStored) => {
+			res.status(200).send({appointment: appointmentStored});
+			console.log(err)
 		});
+		
+	})
+		
+	router.put('/appointments/:id', (req, res) => {
+		Appointment.findOneAndUpdate({_id :req.params.id},req.body,{upsert: true},(err, appointmentStored) => {
+			if (err) {
+				console.error(err);
+			} else {
+				res.json(appointmentStored);
+			}
+		});
+
+	});
 	
 	router.get('/appointments/:from/:to', (req, res) => {
 		
 		var initdate = req.params.from;
 	    var endDate = req.params.to;
 	    
-	    
-	    
 	    initdate = moment(initdate, "YYYYMM").toDate();
 	    endDate = moment(endDate, 'YYYYMM').add(1,'M').toDate();
 
-	   Appointment.find({fecha_inicio:{$gte: initdate, $lte: endDate}},(err, appointment) => {
+	    Appointment.find({fecha_inicio:{$gte: initdate, $lte: endDate}},(err, appointment) => {
 			if (err) {
 				res.json(err)
 			} else{

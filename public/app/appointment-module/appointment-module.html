@@ -1,12 +1,13 @@
+
 <h1>Calendario:</h1>
 
 
 
 <div class='calendar'>
 	<div class="navigation">
-		<div class="prev"><a href="appointments/{{prevMonth | date : 'yyyyMMdd'}}"><<</a></div>
+		<div class="prev"><a href="appointments/{{prevMonth | date : 'yyyyMMdd'}}/{{prevMonth | date : 'yyyyMMdd'}}"><<</a></div>
 		<div class="current">{{currentMonth | date : 'MMMM yyyy'}}</div>
-		<div class="next"><a href="appointments/{{nextMonth | date : 'yyyyMMdd'}}">>></a></div>
+		<div class="next"><a href="appointments/{{nextMonth | date : 'yyyyMMdd'}}/{{nextMonth | date : 'yyyyMMdd'}}">>></a></div>
 	</div>
 	<div class='header row'>
 		<div class='column monday'>Lunes</div>
@@ -21,7 +22,7 @@
 	<div class='calendar_body'>
 		<div class="column {{data.date | date:'EEEE' | lowercase}}" ng-repeat='cell in cells' >
 				
-				{{cell.date | date:'dd-MM-yyyy'}} <br />
+				<a ng-href='/appointmentsList/{{cell.date | date:"yyyyMMdd"}}'>{{cell.date | date:'dd-MM-yyyy'}}</a> <br />
 				{{cell.appointmentsCount}}
 				
 			</div>
