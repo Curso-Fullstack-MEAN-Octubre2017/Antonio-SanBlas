@@ -9,11 +9,11 @@
 		<th>Apellido</th>
 		<th></th>
 	</tr>
-	<tr ng-repeat="data in datos|filter:buscar">
+	<tr ng-repeat="data in datos">
 		<td>{{data.firstName}}</td>
 		<td>{{data.lastName}}</td>
 		<td><a ng-href="customer/{{data._id}}">Ver mas</a></td>
-		<td><a ng-href="customerDel/{{data._id}}">Eliminar cliente</a></td>
+		<td><button name='eliminar' ng-click="borrarCliente(data._id)">Borrar cliente</a></button></td>
 	</tr>
 </table>
 

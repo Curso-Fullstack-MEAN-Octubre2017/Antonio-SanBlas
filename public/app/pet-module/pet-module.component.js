@@ -3,14 +3,19 @@
 angular.module('petModule')
     .component('petModule', {
         templateUrl:'/app/pet-module/pet-module.html',
-        controller: function($scope, $http,$location,$routeParams) {
+        controller: function($scope, $http,$location,$routeParams,petsResources) {
+        
         	
-        	$http.get('api/pets/'+$routeParams.id).then(function(responsePet){
-            	//console.log('entro a pet')
+        	
+        	//$scope.datosPet=petsResources.getbyowner({owner: $routeParams.id});
+        	
+        	$http.get('api/pet/'+$routeParams.id).then(function(responsePet){
+            	
         		$scope.datosPet=responsePet.data;	
         	 	
         	 });
-       
+ 
+        	
     	}
      	
      });

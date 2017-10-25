@@ -12,7 +12,7 @@ module.exports = (router) =>{
 		});
 	})
 		
-	router.get('/customer/:id', (req, res) => {
+	router.get('/customers/:id', (req, res) => {
 		
 		
 		Customer.findById(req.params.id,(err, customers) => {
@@ -23,8 +23,7 @@ module.exports = (router) =>{
 			}
 		});
 	})
-	router.post('/customer', (req, res) => {
-		console.log('postModelo')
+	router.post('/customers', (req, res) => {	
 		var params = req.body;
 		var customer = new Customer(req.body);
 		customer.save((err, customerStored) => {
@@ -34,31 +33,23 @@ module.exports = (router) =>{
 		
 	})
 		
-	router.put('/customer/:id', (req, res) => {
+	router.put('/customers/:id', (req, res) => {
 		Customer.findOneAndUpdate({_id :req.params.id},req.body,{upsert: true},(err, customerStored) => {
 			if (err) {
 				console.error(err);
 			} else {
-				Customer.find((err, customers) => {
-					if (err) {
-						console.error(err);
-					} else {
-						res.json(customers);
-					}
-				})
+				res.json(customerStored);
 			}
 		});
 
 	});
 	
 	router.delete('/customerDel/:id', (req, res) => {
-		console.log(req.params.id);
 		
 		Customer.remove({ _id: req.params.id }, function (err) {
 			  if (err) 
-				  console.error(err);
-			  else
-				  res.json({ha:'funcionado'});
+				  return handleError(err)
+				
 		});	
 	})
 

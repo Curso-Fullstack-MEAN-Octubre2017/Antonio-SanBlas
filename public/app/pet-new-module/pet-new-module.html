@@ -27,7 +27,7 @@
 	<tr>
 	<td></td><td><input type="hidden" ng-model="datosPet.ownerID"></input></td>
 	</tr>
-	<tr ng-if='(datosPet.ownerID)'><td colspan="2"><button value="Guardar mascota" ng-click="datosMascota()" >Guardar mascota</button></td></tr>
-	<tr ng-if='(!datosPet.ownerID)'><td colspan="2"><button value="Guardar mascota" ng-click="crearMascota()" >Crear mascota</button></td></tr>
+	<tr ng-if='datosPet.owner'><td colspan="2"><button value="Guardar mascota" ng-click="datosMascota()" >Guardar mascota</button></td></tr>
+	<tr ng-if='!datosPet.owner'><td colspan="2"><button value="Crear mascota" ng-click="crearMascota()" >Crear mascota</button></td></tr>
 </table>
 
