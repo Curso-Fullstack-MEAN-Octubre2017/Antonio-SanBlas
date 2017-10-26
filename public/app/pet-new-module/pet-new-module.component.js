@@ -1,18 +1,12 @@
 'use strict';
-
+angular.module('petNewModule', []);
 angular.module('petNewModule')
     .component('petNewModule', {
         templateUrl:'/app/pet-new-module/pet-new-module.html',
         controller: function($scope, $http,$location,$routeParams,petsResources) {
         	
         	$scope.datosPet=petsResources.get({id:$routeParams.id})
-        	console.log($scope.datosPet)
-        	/*
-        	$http.get('api/pet/'+$routeParams.id).then(function(responsePet){
-            	console.log('entro a pet edit')
-        		$scope.datosPet=responsePet.data;	
-        	 	
-        	 });*/
+        	
         	$scope.datosMascota=function(){
 	        		var objPet={
 	            			"name": $scope.datosPet.name,
@@ -27,7 +21,8 @@ angular.module('petNewModule')
 	            			}
         			
         			
-        			petsResources.update({id:$routeParams.id},objPet, function(pet) {}, function(error) {})
+        			petsResources.update({id:$routeParams.id},objPet, 
+        					function(pet) {$scope.datosPet=pet;}, function(error) {})
         			
             		$location.path('/customer/'+$scope.datosPet.owner);
         		}
@@ -43,7 +38,10 @@ angular.module('petNewModule')
             			"description":$scope.datosPet.description,
             			"owner": $routeParams.id}
         			
-        			petsResources.save({}, objPet, function(pet) {}, function(error) {});
+        			petsResources.save({}, objPet, function(pet) {
+        				$scope.datosPet=pet;
+        				$scope.$emit("message:success", {message:"Cliente dado de alta con exito"});
+        			}, function(error) {});
         	
         		
         		$location.path('/customer/'+$routeParams.id);

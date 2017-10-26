@@ -19,9 +19,13 @@
 	<tr>
 	<td>nota: </td><td><input type="text" ng-model="datos.note"></input></td>
 	</tr>
-	<tr><td colspan="2"><button value="Guardar Cliente" ng-click="mandarDatos()" >Guardar cliente</button></td></tr>
+	<tr><td colspan="2"><a class="waves-effect waves-light btn" ng-click="mandarDatos()">Guardar cliente</a>
+	
 </table>
+
 <pet-module></pet-module>
 
-<a ng-href="/petNew/{{datos._id}}">A&ntildeadir Mascota</a>
+<a class="waves-effect waves-light btn" ng-href="/pet/{{datos._id}}">A&ntildeadir Mascota</a>
+
+
 

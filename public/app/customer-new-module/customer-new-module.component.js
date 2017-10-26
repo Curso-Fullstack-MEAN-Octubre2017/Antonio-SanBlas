@@ -1,5 +1,5 @@
 'use strict';
-
+angular.module('customerNewModule', []);
 angular.module('customerNewModule')
     .component('customerNewModule', {
         templateUrl:'/app/customer-new-module/customer-new-module.html',
@@ -10,14 +10,25 @@ angular.module('customerNewModule')
         	}else{
         		$scope.datos={}
         	}
-        
-        	
+ 	
         $scope.mandarDatos=function(){
-        	if($routeParams.id){
-        		console.log('entro en put')
-        		customersResources.update({id: $scope.datos._id}, $scope.datos, function(customer) {}, function(error) {});
-        	}else{
-        		console.log('entro en post')
+        	/*
+        	const validationErrors = Validators.validateCustomer($scope.customer);
+    		if(validationErrors) {
+    			return alert(JSON.stringify(validationErrors));
+    		}    		
+    		
+    		var errorCallback = function(response) { 
+    			$scope.$emit("message:error", {message: response.statusText})
+    		}*/
+        	
+        	
+        	if($routeParams.id){     		
+        		customersResources.update({id: $scope.datos._id}, $scope.datos, function(customer) {
+        			$scope.$emit("message:success", {message: "Cliente actualizado con exito"})
+        			$location.path("/customers");
+        		}, function(error) {});
+        	}else{ 		
         		customersResources.save({}, $scope.datos, 
         				function(customer) {
         					$scope.$emit("message:success", {message:"Cliente dado de alta con exito"})
@@ -29,7 +40,7 @@ angular.module('customerNewModule')
         		);
 	
         	}
-        	//$location.path('/customers')
+        	
         }
         
         

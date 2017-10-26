@@ -1,20 +1,13 @@
 'use strict';
-
+angular.module('petModule', []);
 angular.module('petModule')
     .component('petModule', {
         templateUrl:'/app/pet-module/pet-module.html',
-        controller: function($scope, $http,$location,$routeParams,petsResources) {
-        
+        controller: function($rootScope,$scope, $http,$location,$routeParams,petsResources) {
         	
-        	
-        	//$scope.datosPet=petsResources.getbyowner({owner: $routeParams.id});
-        	
-        	$http.get('api/pet/'+$routeParams.id).then(function(responsePet){
-            	
-        		$scope.datosPet=responsePet.data;	
-        	 	
-        	 });
- 
+        	if($routeParams.id){
+        		$scope.datosPet=petsResources.getbyowner({owner: $routeParams.id});
+        	}
         	
     	}
      	

@@ -1,5 +1,5 @@
 const Customer = require('../models/customers');
-
+const Validators = require("../public/app/validation/validators.js");
 module.exports = (router) =>{
 	
 	router.get('/customers', (req, res) => {
@@ -25,6 +25,11 @@ module.exports = (router) =>{
 	})
 	router.post('/customers', (req, res) => {	
 		var params = req.body;
+		const validationErrors = Validators.validateCustomer(params);
+		if(validationErrors) {
+			return res.status(400).send(validationErrors);
+		}
+		var params = req.body;
 		var customer = new Customer(req.body);
 		customer.save((err, customerStored) => {
 			res.json(customerStored);
@@ -44,13 +49,18 @@ module.exports = (router) =>{
 
 	});
 	
-	router.delete('/customerDel/:id', (req, res) => {
-		
+	router.delete('/customers/:id', (req, res) => {
+		console.log(req.params.id);
 		Customer.remove({ _id: req.params.id }, function (err) {
-			  if (err) 
+			  if (err) {
 				  return handleError(err)
+			  }
+			 // res.sendStatus(200);
+			  res.status(200).send();
+			  
 				
 		});	
+	
 	})
 
 
