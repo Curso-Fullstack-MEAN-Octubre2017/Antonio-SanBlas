@@ -74,6 +74,19 @@ module.exports = (router) =>{
 		});
 
 	});
+	router.delete('/pets/:id', (req, res) => {
+	
+		Pet.remove({ _id: req.params.id }, function (err) {
+			  if (err) {
+				  return handleError(err)
+			  }
+			 // res.sendStatus(200);
+			  res.status(200).send();
+			  
+				
+		});	
+	
+	})
 	
 	return router;
 }

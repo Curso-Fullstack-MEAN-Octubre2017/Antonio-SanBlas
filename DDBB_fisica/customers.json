@@ -1,0 +1,8 @@
+{"_id":{"$oid":"59dde62085374e0e50a85c3d"},"note":"Nada en particular","mail":"antoniosanblas@ejemplo.es","phone":"981547854","lastName":"San Blas","firstName":"Antonio","dni":"49586412S","__v":0}
+{"_id":{"$oid":"59dde64e85374e0e50a85c3f"},"note":"Nada en particular","mail":"pablogarcia@ejemplo.es","phone":"981555444","lastName":"Garcia","firstName":"Pablo","dni":"48454842D","__v":0}
+{"_id":{"$oid":"59dde65885374e0e50a85c40"},"note":"Nada en particular","mail":"pedroperez@ejemplo.es","phone":"981222333","lastName":"Perez","firstName":"Pedro","dni":"48454748T","__v":0}
+{"_id":{"$oid":"59f2d8f46880d6122c33effe"},"firstName":"asdsa","lastName":"dsadsa","mail":"sdfsd@hbdth","phone":"asd","dni":"sadas","note":"asdsad","__v":0}
+{"_id":{"$oid":"59f2d90d628839020c7f896a"},"firstName":"asdsad","lastName":"sadsadsa","mail":"sdfsd@hbdth","phone":"asdsad","dni":"sadsad","note":"sadasd","__v":0}
+{"_id":{"$oid":"59f2e390f2c4bf06a8ea32d8"},"firstName":"sadsad","lastName":"asdsad","mail":"asdas@gdg","phone":"drgdrg","dni":"drg","note":"drgdrg","__v":0}
+{"_id":{"$oid":"59f2e402aa29231f30c51a28"},"firstName":"asdsa1","lastName":"dsadsad","mail":"asda@fgrgrd","phone":"drgdrg","dni":"drgrg","note":"drgrdgr","__v":0}
+{"_id":{"$oid":"59f2e586fe15a7098c61b468"},"firstName":"dsfsdf","lastName":"sadsad","mail":"sadsa@efgsger","phone":"rdgdrg","dni":"rgdg","note":"gdgdrg","__v":0}

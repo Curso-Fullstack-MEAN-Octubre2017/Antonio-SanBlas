@@ -1,31 +1,45 @@
-<h1>Clientes</h1>
-
-<table id="newCustomer" >
-	<tr>
-	<td>Nombre: </td><td><input type="text" ng-model="datos.firstName" ></input></td>
-	</tr>
-	<tr>
-	<td>Apellido: </td><td><input type="text" ng-model="datos.lastName"></input></td>
-	</tr>
-	<tr>
-	<td>Email: </td><td><input type="email" ng-model="datos.mail"></input></td>
-	</tr>
-	<tr>
-	<td>Telefono: </td><td><input type="tel" ng-model="datos.phone"></input></td>
-	</tr>
-	<tr>
-	<td>Dni: </td><td><input type="text" ng-model="datos.dni"></input></td>
-	</tr>
-	<tr>
-	<td>nota: </td><td><input type="text" ng-model="datos.note"></input></td>
-	</tr>
-	<tr><td colspan="2"><a class="waves-effect waves-light btn" ng-click="mandarDatos()">Guardar cliente</a>
-	
-</table>
-
-<pet-module></pet-module>
-
-<a class="waves-effect waves-light btn" ng-href="/pet/{{datos._id}}">A&ntildeadir Mascota</a>
+<h3>Clientes</h3>
+ <div class="row">
+    <form class="col s6">
+      <div class="row">
+        <div class="input-field col s6">
+          <input  id="first_name" type="text" ng-model='datos.firstName'>
+          <label for="first_name">Nombre</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="last_name"  type="text" ng-model='datos.lastName'>
+          <label for="last_name">Apellido</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="Telefono"  type="tel"  ng-model='datos.phone'>
+          <label for="Telefono">Telefono</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="email"  type="email" ng-model='datos.mail' class="validate">
+          <label for="email" data-error="Email invalido" data-success="Correcto">Email</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="dni"   type="text" ng-model='datos.dni'>
+          <label for="dni">DNI</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="note"  type="text" ng-model='datos.note'>
+          <label for="note">Nota</label>
+        </div>
+      </div>
+  
+    </form>
+	<pet-module class="col s6" ng-if='datos._id'></pet-module>
+</div>
+<a class="waves-effect waves-light btn" ng-click="mandarDatos()">Guardar cliente</a>
 
 
 

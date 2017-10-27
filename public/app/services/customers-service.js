@@ -67,8 +67,5 @@ angular.module('customersService', []).factory('customersService', function($htt
 	
 	
 	return service;
-	/*
-	return $resource('/api/customers', {
-        update: { method:'GET'}
-    })	*/
+
 });

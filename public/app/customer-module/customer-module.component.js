@@ -16,6 +16,7 @@ angular.module('customerModule')
         	
         		customersResources.delete({id: id}, function() {
         			$scope.$emit("message:success", {message:"Cliente borrado con exito"});
+        			$scope.datos=customersResources.query()
         			$location.path('/customers');
         		}, function(error) {});	
         		$location.path('/customers');

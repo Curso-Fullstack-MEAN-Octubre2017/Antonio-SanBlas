@@ -12,15 +12,15 @@ angular.module('customerNewModule')
         	}
  	
         $scope.mandarDatos=function(){
-        	/*
-        	const validationErrors = Validators.validateCustomer($scope.customer);
+        	
+        	const validationErrors = Validators.validateCustomer($scope.datos);
     		if(validationErrors) {
     			return alert(JSON.stringify(validationErrors));
     		}    		
     		
     		var errorCallback = function(response) { 
     			$scope.$emit("message:error", {message: response.statusText})
-    		}*/
+    		}
         	
         	
         	if($routeParams.id){     		

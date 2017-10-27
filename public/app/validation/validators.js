@@ -4,6 +4,7 @@ if (typeof validate !== "function") {
 
 const Validators = {
 	validateCustomer : function(customer) {
+		
 		return validate(customer, {
 			firstName : {
 				presence : true,
@@ -15,6 +16,18 @@ const Validators = {
 					minimum : 3,
 					maximum: 20,
 					message : "debe tener entre 4 y 20 caracteres"
+				}
+			},
+			mail:{
+				presence : true,
+				email:true
+			},
+			phone:{
+				numericality: true,
+				length : {
+					minimum : 9,
+					maximum : 20,
+					message : "debe tener como minimo 9 digitos"
 				}
 			}
 		});
@@ -29,6 +42,11 @@ const Validators = {
 					maximum : 20,
 					message : "debe tener entre 4 y 20 caracteres"
 				}
+			
+			},
+			birthday:{
+				datetime:false
+					
 			}
 		});
 	},

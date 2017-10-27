@@ -25,11 +25,12 @@ module.exports = (router) =>{
 	})
 	router.post('/customers', (req, res) => {	
 		var params = req.body;
+		/*
 		const validationErrors = Validators.validateCustomer(params);
 		if(validationErrors) {
 			return res.status(400).send(validationErrors);
-		}
-		var params = req.body;
+		}*/
+
 		var customer = new Customer(req.body);
 		customer.save((err, customerStored) => {
 			res.json(customerStored);
