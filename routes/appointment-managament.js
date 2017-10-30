@@ -16,16 +16,7 @@ module.exports = (router) =>{
 		});
 	})
 	
-	router.get('/appointments/:id', (req, res) => {
 
-		Appointment.findById(req.params.id,(err, appointment) => {
-			if (err) {
-				console.error(err);
-			} else {
-				res.json(appointment);
-			}
-		});
-	})
 		
 	router.post('/appointments', (req, res) => {
 		
@@ -94,15 +85,20 @@ module.exports = (router) =>{
 		
 		router.get('/appointments/:id', (req, res) => {
 			 var id = req.params.id;
-			 
-
-			 
 			 Appointment.findById(id,(err, appointment) => {
 					if (err) {
 						res.json(err)
 					} else{
 						res.json(appointment);
 					}
+				}).populate({
+					  path:'pet',
+					  model:'Pet',
+					  populate: {
+				           path: 'owner',
+				           model: 'Customer',
+				           
+				     }
 				})
 		})
 

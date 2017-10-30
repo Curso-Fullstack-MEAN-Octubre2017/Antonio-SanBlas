@@ -1,3 +1,34 @@
-<h1>Funciono</h1>
 
-{{datos}}
+<div ng-if='datos'>
+	<div class='row'>
+		<div id='cita' class='col s12'>
+			<h3>Datos de la cita</h3>
+			<ul>
+				<li>Dia : {{datos.fecha_inicio | date : 'dd/MM'}} 
+				<li>Hora : {{datos.fecha_inicio | date : 'HH:mm'}} - {{datos.fecha_fin | date : 'HH:mm'}} 
+				<li> Veterinario : Antonio
+			</ul>
+		</div>
+	</div>
+	<div class='row'>
+		<div id='pet' class='col s6'>
+			<h3>Datos de mascota</h3>
+			<ul>
+				<li>Nombre: {{datos.pet.name}}
+				<li>Animal: {{datos.pet.species}}
+				<li>Sexo: {{datos.pet.sex}}
+				<li>fecha de nacimiento {{datos.pet.birthday | date : 'dd/MM/yyyy'}}
+			</ul>
+		</div>
+		
+		<div id='owner' class='col s6'>
+			<h3>Datos del due&ntilde;o</h3>
+			<ul>
+				<li>Nombre: {{datos.pet.owner.firstName}} {{datos.pet.owner.lastName}}
+				<li>telefono: {{datos.pet.owner.phone}}
+				<li>Email: {{datos.pet.owner.mail}}
+				
+			</ul>
+		</div>
+	</div>
+</div>

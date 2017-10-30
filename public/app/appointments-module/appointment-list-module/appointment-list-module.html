@@ -1,3 +1,5 @@
+<h2>lista</h2>
+
 <div class='horario'>
 
 	<div class='cita' ng-repeat='citas in appointment'>
@@ -6,7 +8,7 @@
 			Mascota:{{citas.datos.pet.name}}</br>
 			Especie:{{citas.datos.pet.species}}<br/>
 			Due&ntilde;o:{{citas.datos.pet.owner.firstName}} {{citas.datos.pet.owner.lastName}}<br/>
-			<a ng-href="/appointmentsDetail/{{citas.datos._id}}" >Ver detalles</a>
+			<a ng-click='$emit("appointment:showAppClick",{id:citas.datos._id})'>Ver detalles</a>
 		</div>
 		<div ng-if='!citas.datos.pet.name'>No hay citas</div>
 		

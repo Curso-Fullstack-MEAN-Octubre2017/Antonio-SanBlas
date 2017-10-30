@@ -32,6 +32,8 @@
 	<script src="/app/appointments-module/appointment-list-module/appointment-list-module.component.js"></script> 
 	<script src="/app/appointments-module/appointment-detail-module/appointment-detail-module.component.js"></script> 
 	
+
+	<script src="/app/appointments-module/appointments-module.component.js"></script> 	
 	
 	<!-- <script src="/app/services/customers-service.js"></script> -->
 	<script src="/app/services/customers-resources.js"></script>
@@ -50,7 +52,17 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <body>
 		
-		
+		 <nav class='blue'>
+		    <div class="nav-wrapper">
+		      <a href="/" class="brand-logo">PetStore</a>
+		      <ul id="nav-mobile" class="right hide-on-med-and-down">
+		        <li><a href="/customers">Clientes</a></li>
+		        <li><a href="/appointments/20171001/20171001">Citas</a></li>
+		        
+		      </ul>
+		    </div>
+		  </nav>
+        
 		<div ng-view></div>
 	
 

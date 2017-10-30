@@ -8,8 +8,7 @@ angular.module('petStore')
         $locationProvider.html5Mode({ enabled: true });
         $routeProvider
 	        .when("/",{
-	            template: "Ver lista de clientes <br/> <a ng-href='customers'>Listar Clientes</a> <br/>" +
-	            		"Ver lista de citas <br/><a ng-href='appointments/201710/201710'>Listar Citas</a> <br/><br/> "
+	            template: ""
 	        })
             .when("/customers",{
                 template: "<customer-module></customer-module>"
@@ -30,12 +29,14 @@ angular.module('petStore')
                 template: "<appointment-module></appointment-module>"
             })
             .when("/appointmentsList/:date",{
-                template: "<appointment-list-module></appointment-list-module>"
+                template: "<appointments-module></appointments-module>"
             })
             .when("/appointmentsDetail/:id",{
                 template: "<appointment-detail-module></appointment-detail-module>"
             })
-           
+            .when("/appointments",{
+                template: "<appointments-module></appointments-module>"
+            })
             .otherwise({
                 template: "Other"
             });
