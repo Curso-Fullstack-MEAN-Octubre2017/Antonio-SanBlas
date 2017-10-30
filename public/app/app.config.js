@@ -32,7 +32,7 @@ angular.module('petStore')
             .when("/appointmentsList/:date",{
                 template: "<appointment-list-module></appointment-list-module>"
             })
-            .when("/appointmentsDetail/:date",{
+            .when("/appointmentsDetail/:id",{
                 template: "<appointment-detail-module></appointment-detail-module>"
             })
            

@@ -90,8 +90,22 @@ module.exports = (router) =>{
 		     }
 		  }).sort({'initdate': 1})
 		})
-	
-		console.log('entro')
+		
+		
+		router.get('/appointments/:id', (req, res) => {
+			 var id = req.params.id;
+			 
+
+			 
+			 Appointment.findById(id,(err, appointment) => {
+					if (err) {
+						res.json(err)
+					} else{
+						res.json(appointment);
+					}
+				})
+		})
+
 		
 
 			

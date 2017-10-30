@@ -6,14 +6,15 @@
 			Mascota:{{citas.datos.pet.name}}</br>
 			Especie:{{citas.datos.pet.species}}<br/>
 			Due&ntilde;o:{{citas.datos.pet.owner.firstName}} {{citas.datos.pet.owner.lastName}}<br/>
-			<a ng-href="/appointmentsDetail/{{citas.datos.fecha_inicio | date : 'yyyyMMdd'}}" >Ver detalles</a>
+			<a ng-href="/appointmentsDetail/{{citas.datos._id}}" >Ver detalles</a>
 		</div>
 		<div ng-if='!citas.datos.pet.name'>No hay citas</div>
+		
 	
 	</div>
 	
 	<!-- <appointment-detail-module></appointment-detail-module> -->
-
+	
 </div>
 
 <style>

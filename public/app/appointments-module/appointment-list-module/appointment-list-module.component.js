@@ -2,7 +2,7 @@
 angular.module('appointmentListModule', []);
 angular.module('appointmentListModule')
     .component('appointmentListModule', {
-        templateUrl:'/app/appointment-list-module/appointment-list-module.html',
+        templateUrl:'/app/appointments-module/appointment-list-module/appointment-list-module.html',
         controller: function($scope, $http,$routeParams,$location) {
         	console.log('entro')
         	 moment.locale("es");
