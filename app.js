@@ -4,7 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
+var socket_io=require('socket.io');
 
 
 
@@ -14,6 +14,8 @@ var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/petStore',{useMongoClient:true});
 const router = express.Router();
 
+
+
 var customer =require("./routes/customer-managament.js")(router);
 var pet =require("./routes/pet-managament.js")(router);
 var appointment = require("./routes/appointment-managament.js")(router);
@@ -22,6 +24,11 @@ var appointment = require("./routes/appointment-managament.js")(router);
 
 var app = express();
 
+app.io = require('socket.io')();
+
+require("./routes/socketio-manager.js")(app.io);
+
+//const io = socket_io();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');

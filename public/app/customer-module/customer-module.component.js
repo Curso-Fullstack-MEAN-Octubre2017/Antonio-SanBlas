@@ -6,6 +6,10 @@ angular.module('customerModule')
         controller: function($rootScope, $scope, $http,$routeParams,$location,customersResources) {
         	
         	$scope.datos=customersResources.query()
+        	
+        	
+        	
+        	
  
         	
         	$rootScope.$on("message:success", function(event, message) {

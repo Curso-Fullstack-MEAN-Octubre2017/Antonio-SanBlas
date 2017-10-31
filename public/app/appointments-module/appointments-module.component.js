@@ -5,6 +5,13 @@ angular.module('appointmentsModule')
         templateUrl:'/app/appointments-module/appointments-module.html',
         controller: function($scope, $http,$routeParams,$location) {
         	
+        	var socket = io.connect();
+        	socket.on('customers:evento1', function(data) {
+        		console.log("Recibido el evento customers:evento1", data);
+        	})
+        	
+        	
+        	
 	       	moment.locale("es");
 	        $scope.date = $routeParams.date;
        

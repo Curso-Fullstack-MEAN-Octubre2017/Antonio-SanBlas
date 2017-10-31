@@ -2,6 +2,9 @@ const Customer = require('../models/customers');
 const Validators = require("../public/app/validation/validators.js");
 module.exports = (router) =>{
 	
+
+	
+	
 	router.get('/customers', (req, res) => {
 		Customer.find((err, customers) => {
 			if (err) {

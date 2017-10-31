@@ -10,6 +10,7 @@ angular.module('petStore')
 	        .when("/",{
 	            template: ""
 	        })
+	        
             .when("/customers",{
                 template: "<customer-module></customer-module>"
             })

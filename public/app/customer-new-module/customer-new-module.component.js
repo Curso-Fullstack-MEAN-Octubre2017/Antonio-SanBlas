@@ -5,6 +5,9 @@ angular.module('customerNewModule')
         templateUrl:'/app/customer-new-module/customer-new-module.html',
         controller: function($scope, $http,$location,$routeParams,customersResources) {
         	
+        	
+        	
+        	
         	if($routeParams.id){
         		$scope.datos=customersResources.get({id : $routeParams.id})
         	}else{
