@@ -14,6 +14,11 @@ angular.module('appointmentsModule')
         		
         	});
         	
+        	$scope.$on("appointment:newAppClick",(event,datos)=>{
+        		console.log(datos)
+        		$scope.$broadcast("appointment:newApp",datos)
+        	})
+        	
         	
         }
     });

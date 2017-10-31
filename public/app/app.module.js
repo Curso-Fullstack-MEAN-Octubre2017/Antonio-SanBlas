@@ -12,5 +12,7 @@ angular.module('petStore', [
     'appointmentDetailModule',
     'customersResources',
     'petsResources',
-    'appointmentsModule'
+    'appointmentsModule',
+    'formCustomerDirective',
+    'appointmentNewModule'
 ]);

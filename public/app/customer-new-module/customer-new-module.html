@@ -2,40 +2,25 @@
  <div class="row">
     <form class="col s6">
       <div class="row">
-        <div class="input-field col s6">
-          <input  id="first_name" type="text" ng-model='datos.firstName'>
-          <label for="first_name">Nombre</label>
-        </div>
-        <div class="input-field col s6">
-          <input id="last_name"  type="text" ng-model='datos.lastName'>
-          <label for="last_name">Apellido</label>
-        </div>
+      	<label-input-form data-size="s6"  data-idfor="firstName" data-type="text" data-model="datos.firstName" data-label="Nombre" />  
+        
+        <label-input-form data-size="s6"  data-idfor="lastName" data-type="text" data-model="datos.lastName" data-label="Apellido" />       
       </div>
       <div class="row">
-        <div class="input-field col s12">
-          <input id="Telefono"  type="tel"  ng-model='datos.phone'>
-          <label for="Telefono">Telefono</label>
-        </div>
+      <label-input-form data-size="s12"  data-idfor="phone" data-type="tel" data-model="datos.phone" data-label="Telefono" />
       </div>
       <div class="row">
-        <div class="input-field col s12">
-          <input id="email"  type="email" ng-model='datos.mail' class="validate">
-          <label for="email" data-error="Email invalido" data-success="Correcto">Email</label>
-        </div>
+	      <label-input-form data-size="s12"  data-idfor="mail" data-type="email" data-model="datos.mail" data-label="Correo electronico" />   
       </div>
       <div class="row">
-        <div class="input-field col s12">
-          <input id="dni"   type="text" ng-model='datos.dni'>
-          <label for="dni">DNI</label>
-        </div>
+      	<label-input-form data-size="s12"  data-idfor="dni" data-type="text" data-model="datos.dni" data-label="DNI" />
+   
       </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <input id="note"  type="text" ng-model='datos.note'>
-          <label for="note">Nota</label>
-        </div>
+       
+       <div class="row">
+       		<label-input-form data-size="s12" data-idfor="note" data-type="text" data-model="datos.note" data-label="Nota" />
       </div>
-  
+   
     </form>
 	<pet-module class="col s6" ng-if='datos._id'></pet-module>
 </div>

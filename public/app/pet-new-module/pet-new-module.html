@@ -3,84 +3,43 @@
 <div class='row'>
 	<div class='col s6'>
 		<div class='row'>
-			<div class='input-field col s6'>
-				<input id='name'  type='text' ng-model='datosPet.name'>
-				<label for='name'>Nombre</label>
-			</div>
-			<div class='input-field col s6'>
-				<input id='birthday'  type='date' ng-model='datosPet.birthday'>
-				<label for='birthday'>Fecha de nacimiento</label>
-			</div>
+			<label-input-form data-size="s6"  data-idfor="name" data-type="text" data-model="datosPet.name" data-label="Nombre" />
+			
+			<label-input-form data-size="s6"  data-idfor="birthday" data-type="date" data-model="datosPet.birthday" data-label="Fecha de nacimiento" />
+		
 		</div>
 		<div class='row'>
-			<div class='input-field col s6'>
-				<input id='species'  type='text' ng-model='datosPet.species'>
-				<label for='species'>Especie</label>
-			</div>
+			<label-input-form data-size="s6"  data-idfor="species" data-type="text" data-model="datosPet.species" data-label="Especie" />
+			
+			<label-input-form data-size="s6"  data-idfor="race" data-type="text" data-model="datosPet.race" data-label="Raza" />
+			
 		</div>
+	
 		<div class='row'>
-			<div class='input-field col s6'>
-				<input id='race'  type='text' ng-model='datosPet.race'>
-				<label for='race'>Raza</label>
-			</div>
-		</div>
-		<div class='row'>
-			<div class='input-field col s6'>
-				<input id='sex'  type='text' ng-model='datosPet.sex'>
+
+			<div class='col s6'>
 				<label for='sex'>Sexo</label>
+				<select id="sex" class="browser-default" ng-model="datosPet.sex">
+			    	<option value="" disabled>Selecciona el sexo</option>
+			    	<option value='Hembra'> Hembra</option>
+			    	<option value='Macho'>Macho</option>
+ 		 		</select>
 			</div>
+			
+			<label-input-form data-size="s6"  data-idfor="photo" data-type="text" data-model="datosPet.photoURL" data-label="photo" />
+			
 		</div>
 		<div class='row'>
-			<div class='input-field col s6'>
-				<input id='picture'  type='text' ng-model='datosPet.photo'>
-				<label for='picture'>Foto</label>
-			</div>
+			<label-input-form data-size="s6"  data-idfor="chip" data-type="text" data-model="datosPet.chipNumber" data-label="Nº Chip" />
+			
+			<label-input-form data-size="s6"  data-idfor="note" data-type="text" data-model="datosPet.description" data-label="Descripcion" />
+		
 		</div>
-		<div class='row'>
-			<div class='input-field col s6'>
-				<input id='chip'  type='text' ng-model='datosPet.chipNumber'>
-				<label for='chip'>Nº Chip</label>
-			</div>
-		</div>
-		<div class='row'>
-			<div class='input-field col s6'>
-				<input id='note'  type='text' ng-model='datosPet.note'>
-				<label for='note'>Nota</label>
-			</div>
+		<div class='col s6'>
+			<div ng-if='datosPet.owner'><td colspan="2"><a class="waves-effect waves-light btn" ng-click="datosMascota()">Guardar mascota</a></td></div>
+			<div ng-if='!datosPet.owner'><td colspan="2"><a class="waves-effect waves-light btn" ng-click="crearMascota()"> Crear mascota</a></td></div>
 		</div>
 	</div>
-
 </div>
-<table id="newPet" >
-	<tr>
-	<td>Nombre: </td><td><input type="text" ng-model="datosPet.name" ></input></td>
-	</tr>
-	<tr>
-	<td>Fecha nacimiento: </td><td><input type="date" ng-model="datosPet.birthday" ></input></td>
-	</tr>
-	<tr>
-	<td>Especie: </td><td><input type="text" ng-model="datosPet.species"></input></td>
-	</tr>
-	<tr>
-	<td>Raza: </td><td><input type="text" ng-model="datosPet.race"></input></td>
-	</tr>
-	<tr>
-	<td>Sexo: </td><td><input type="text" ng-model="datosPet.sex"></input></td>
-	</tr>
-	<tr>
-	<td>Foto: </td><td><input type="text" ng-model="datosPet.photoURL"></input></td>
-	</tr>
-	<tr>
-	<td>Numero de Chip: </td><td><input type="text" ng-model="datosPet.chipNumber"></input></td>
-	</tr>
-	<tr>
-	<td>Descripcion: </td><td><input type="text" ng-model="datosPet.description"></input></td>
-	</tr>
-	<tr>
-	<td></td><td><input type="hidden" ng-model="datosPet.ownerID"></input></td>
-	</tr>
 	
-	<tr ng-if='datosPet.owner'><td colspan="2"><a class="waves-effect waves-light btn" ng-click="datosMascota()">Guardar mascota</a></td></tr>
-	<tr ng-if='!datosPet.owner'><td colspan="2"><a class="waves-effect waves-light btn" ng-click="crearMascota()"> Crear mascota</a></td></tr>
-</table>
 

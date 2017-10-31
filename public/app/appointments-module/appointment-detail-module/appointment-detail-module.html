@@ -1,7 +1,7 @@
 
 <div ng-if='datos'>
 	<div class='row'>
-		<div id='cita' class='col s12'>
+		<div id='cita' class='col s12 card-panel'>
 			<h3>Datos de la cita</h3>
 			<ul>
 				<li>Dia : {{datos.fecha_inicio | date : 'dd/MM'}} 
@@ -11,7 +11,7 @@
 		</div>
 	</div>
 	<div class='row'>
-		<div id='pet' class='col s6'>
+		<div id='pet' class='col s6 '>
 			<h3>Datos de mascota</h3>
 			<ul>
 				<li>Nombre: {{datos.pet.name}}

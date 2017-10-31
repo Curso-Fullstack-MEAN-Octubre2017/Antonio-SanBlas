@@ -37,7 +37,7 @@ angular.module('appointmentModule')
                  	$scope.cells.push({
                  		date: currentDate, 
                  		appointments: $scope.appointmentDate[currentDate],
-                 		appointmentsCount: $scope.appointmentDate[currentDate] ? Object.keys($scope.appointmentDate[currentDate]).length : 0
+                 		appointmentsCount:$scope.appointmentDate[currentDate] ? Object.keys($scope.appointmentDate[currentDate]).length : 0
                  	});
                  	
              	}
