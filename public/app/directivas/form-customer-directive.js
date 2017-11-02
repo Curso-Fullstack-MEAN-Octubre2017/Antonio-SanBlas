@@ -17,6 +17,33 @@ angular.module('formCustomerDirective', [])
 						   </div>'
 			}
 		}
-)
+).directive('customButton',
+	    function () {
+		    return {
+		        restrict: 'E',
+		        replace: true,
+		        scope: {
+		            size: '@',
+		            color: '@',
+		            content:'@'
+		        },
+		        template: '<div>' +
+		        '<button class="waves-effect waves-light btn btn-{{size}} {{color}}">' +
+		        '{{content}}</button>' +
+		        '</div>'
+		    }
+}).directive('btnLink',
+	    function () {
+    return {
+        restrict: 'E',
+        replace: true,
+        scope: {
+            styles: '@',
+            content:'@',
+            href:'@'
+        },
+        template: '<a class="{{styles}}" href="{{href}}" >{{content}}</a>' 
+    }
+})
 			
 		

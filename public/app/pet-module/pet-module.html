@@ -6,13 +6,14 @@
 			<li>Especie: {{pet.species}}</li>
 			<li>Raza: {{pet.race}}</li>
 			<li>Sexo: {{pet.sex }}</li>
-			<li><a class='small material-icons icon-black' ng-href="/pet/{{pet._id}}">info_outline</a>   
-			<a class="btn-flat " ng-click="borrarMascota(pet._id,pet.owner)"><i class='small material-icons '>delete_forever</i></a>
+			<li><a class='small material-icons icon teal-text' ng-href="/pet/{{pet._id}}">info_outline</a>   
+			<a class="small material-icons icon teal-text " ng-click="borrarMascota(pet._id,pet.owner)"><i class='small material-icons teal-text'>delete_forever</i></a>
 			</li>
 			
 		<hr/>	
 		</ul>
-		<a class="waves-effect waves-light btn" ng-href="/pet/{{datosPet[0].owner}}" >A&ntildeadir Mascota</a>
+		<btn-link data-styles='waves-effect waves-light btn'  data-content='A&ntilde;adir Mascota' data-href='/pet/{{datosPet[0].owner}}'></btn-link>
+		<!-- <a class="waves-effect waves-light btn" ng-href="/pet/{{datosPet[0].owner}}" >A&ntildeadir Mascota</a> -->
 		
 	</div>
 </div>

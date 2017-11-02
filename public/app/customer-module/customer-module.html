@@ -10,7 +10,7 @@
 	<tr ng-repeat="data in datos">
 		<td>{{data.firstName}}</td>
 		<td>{{data.lastName}}</td>
-		<td><a ng-href="customer/{{data._id}}">Ver mas</a></td>
+		<td><a ng-href="customer/{{data._id}}"><i class="medium material-icons teal-text">add_circle_outline</i></a></td>
 		<td><a class="waves-effect waves-light btn" ng-click="borrarCliente(data._id)">Borrar cliente</a></td>
 	</tr>
 </table>

@@ -13,20 +13,20 @@
 		</div>
 		<div class='row'>
 			<div class='header row col s12' >
-				<div class='column monday dias'>Lunes</div>
-				<div class='column tuesday dias'>Martes</div>
-				<div class='column wednesday dias'>Miercoles</div>
-				<div class='column thursday dias'>Jueves</div>
-				<div class='column friday dias'>Viernes</div>
-				<div class='column saturday dias'>Sabado</div>
-				<div class='column sunday dias'>Domingo</div>
+				<div class='column monday dias'><h5 class='teal-text'>Lunes</div>
+				<div class='column tuesday dias'><h5 class='teal-text'>Martes</div>
+				<div class='column wednesday dias'><h5 class='teal-text'>Miercoles</div>
+				<div class='column thursday dias'><h5 class='teal-text'>Jueves</div>
+				<div class='column friday dias'><h5 class='teal-text'>Viernes</div>
+				<div class='column saturday dias'><h5 class='teal-text'>Sabado</div>
+				<div class='column sunday dias'><h5 class='teal-text'>Domingo</div>
 			</div>
 		</div>	
 		<div class='row'>
 			<div class='calendar_body col s12 '>
 				<div class="column {{data.date | date:'EEEE' | lowercase}} card-panel  teal lighten-3 " ng-repeat='cell in cells' >
 						
-						<a ng-href='/appointmentsList/{{cell.date | date:"yyyyMMdd"}} white-text ' >{{cell.date | date:'dd-MM-yyyy'}}</a> <br />
+						<a ng-href='/appointmentsList/{{cell.date | date:"yyyyMMdd"}} ' >{{cell.date | date:'dd-MM-yyyy'}}</a> <br />
 						<span ng-if='cell.appointmentsCount!=undefined'>{{cell.appointmentsCount}} Citas</span> 			
 					</div>
 			</div>
@@ -67,9 +67,11 @@
 }
 
 .calendar .dias{
-	border:1px teal solid;
+	/*border:1px teal solid;*/
     width: 13.3%;
 }
-
+.next{
+padding-left: 20% !important;
+}
 
 </style>

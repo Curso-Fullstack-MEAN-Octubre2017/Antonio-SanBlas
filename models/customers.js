@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 
 const clientSchema = new Schema({
 	
-	firstName:{type:String},
+	firstName:{type:String, required:true},
 	lastName:{type:String},
 	mail:{type:String},
 	phone:{type:String},
