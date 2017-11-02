@@ -48,7 +48,7 @@ Diagrama de flujo que representa como se dan de alta Citas en el calendario y ho
 
 ![Diagrama Flujo Calendario-Citas.png](https://raw.githubusercontent.com/Curso-Fullstack-MEAN-Octubre2017/Antonio-SanBlas/master/public/images/Diagrama_Flujo_Calendario-Citas.png)
 
-## RESTfull Services API
+## REST full Services API
 
 Esta es una lista completa de los servicios web REST publicados con ExpressJs
 
@@ -89,7 +89,7 @@ https://github.com/Curso-Fullstack-MEAN-Octubre2017/Antonio-SanBlas/tree/master/
 
 #### Detalle Cliente
 https://github.com/Curso-Fullstack-MEAN-Octubre2017/Antonio-SanBlas/tree/master/public/app/customer-detail-module
-![customers_detail](https://raw.githubusercontent.com/Curso-Fullstack-MEAN-Octubre2017/Antonio-SanBlas/master/public/imagesdetalle-cliente.PNG)
+![customers_detail](https://raw.githubusercontent.com/Curso-Fullstack-MEAN-Octubre2017/Antonio-SanBlas/master/public/images/detalle-cliente.PNG)
 
 #### Lista Mascotas
 https://github.com/Curso-Fullstack-MEAN-Octubre2017/Antonio-SanBlas/tree/master/public/app/customer-module
@@ -98,4 +98,76 @@ https://github.com/Curso-Fullstack-MEAN-Octubre2017/Antonio-SanBlas/tree/master/
 #### Detalle Mascota
 https://github.com/Curso-Fullstack-MEAN-Octubre2017/Antonio-SanBlas/tree/master/public/app/customer-detail-module
 ![Pets_detail](https://raw.githubusercontent.com/Curso-Fullstack-MEAN-Octubre2017/Antonio-SanBlas/master/public/images/edit-mascota.PNG)
+
+### Gestion de mascotas
+
+#### Calendario
+https://github.com/Curso-Fullstack-MEAN-Octubre2017/Antonio-SanBlas/tree/master/public/app/appointment-module
+![Calendar](https://raw.githubusercontent.com/Curso-Fullstack-MEAN-Octubre2017/Antonio-SanBlas/master/public/images/citas-calendario.PNG)
+
+#### Lista de citas
+https://github.com/Curso-Fullstack-MEAN-Octubre2017/Antonio-SanBlas/tree/master/public/app/appointments-module/appointment-list-module
+![Calendar](https://raw.githubusercontent.com/Curso-Fullstack-MEAN-Octubre2017/Antonio-SanBlas/master/public/images/lista-citas.PNG)
+
+
+## Implementación 
+
+### Ejemplo del CRUD de Pets
+
+1- Schema para MongoDB: 
+https://github.com/Curso-Fullstack-MEAN-Octubre2017/Antonio-SanBlas/blob/master/models/customers.js#L6
+
+2- Servicios REST:
+https://github.com/Curso-Fullstack-MEAN-Octubre2017/Antonio-SanBlas/blob/master/app.js#L45
+
+a. Enlace a la linea donde esta la definición de la url REST
+https://github.com/Curso-Fullstack-MEAN-Octubre2017/Antonio-SanBlas/blob/master/routes/customer-managament.js#L5
+
+3- Controlador Angular
+a. Componente.js
+https://github.com/Curso-Fullstack-MEAN-Octubre2017/Antonio-SanBlas/blob/master/public/app/customer-module/customer-module.component.js
+
+b. Componente.html
+https://github.com/Curso-Fullstack-MEAN-Octubre2017/Antonio-SanBlas/blob/master/public/app/customer-module/customer-module.html
+
+c. Configuración del Módulo
+https://github.com/Curso-Fullstack-MEAN-Octubre2017/Antonio-SanBlas/blob/master/public/app/app.module.js
+
+d. Ruta Angular
+https://github.com/Curso-Fullstack-MEAN-Octubre2017/Antonio-SanBlas/blob/master/public/app/app.config.js
+
+e. Ficheros <script> incluidos en el index.html
+https://github.com/Curso-Fullstack-MEAN-Octubre2017/Antonio-SanBlas/blob/master/public/index.html#L28
+
+### Servicios Angular con promesas
+Ejemplo de servicio con customer:
+https://github.com/Curso-Fullstack-MEAN-Octubre2017/Antonio-SanBlas/blob/master/public/app/services/customers-service.js
+
+### Validaciones
+
+https://github.com/Curso-Fullstack-MEAN-Octubre2017/Antonio-SanBlas/blob/master/public/app/validation/validators.js
+
+Validacion en clientes:
+https://github.com/Curso-Fullstack-MEAN-Octubre2017/Antonio-SanBlas/blob/master/public/app/customer-new-module/customer-new-module.component.js#L19
+
+### Resources
+https://github.com/Curso-Fullstack-MEAN-Octubre2017/Antonio-SanBlas/blob/master/public/app/services/pets-resources.js
+
+Ejemplo en mascotas:
+https://github.com/Curso-Fullstack-MEAN-Octubre2017/Antonio-SanBlas/blob/master/public/app/pet-new-module/pet-new-module.component.js#L9
+
+### Eventos
+emit:
+https://github.com/Curso-Fullstack-MEAN-Octubre2017/Antonio-SanBlas/blob/master/public/app/customer-new-module/customer-new-module.component.js#L31
+
+on:
+https://github.com/Curso-Fullstack-MEAN-Octubre2017/Antonio-SanBlas/blob/master/public/app/customer-module/customer-module.component.js#L15
+
+### Directivas 
+
+https://github.com/Curso-Fullstack-MEAN-Octubre2017/Antonio-SanBlas/blob/master/public/app/directivas/form-customer-directive.js
+
+
+
+
 
