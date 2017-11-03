@@ -6,7 +6,7 @@ Se trata de una aplicacion para gestionar las citas a una imaginaria clinica vet
 
 Utilizaremos la pila MEAN para implementar la gestion de Clientes/Mascotas y dar de alta Citas en un Calendario.
 
-# Instalaci髇
+# Instalaci贸n
 
 ```bash
 git clone https://github.com/Curso-Fullstack-MEAN-Octubre2017/Antonio-SanBlas
@@ -56,7 +56,6 @@ Esta es una lista completa de los servicios web REST publicados con ExpressJs
 |---|---|---|---|
 |  GET  |  api/customers  |  << vacio >>  |  res.json([customers]) |
 |  GET  |  api/customers/:id  |  << vacio >>  |  res.json(customer) |
-|  GET  |  api/customers/:id/pets  |  << vacio >>  |  res.json(pets) |
 |  POST  |  api/customers  |  {JSON}  |  res.json(createdCustomer) |
 |  PUT  |  api/customers/:id  |  {JSON}  |  res.json(updatedCustomer) |
 |  GET  |  api/pets/:id  |  << vacio >>  |  res.json(customerPets) |
@@ -110,7 +109,7 @@ https://github.com/Curso-Fullstack-MEAN-Octubre2017/Antonio-SanBlas/tree/master/
 ![Calendar](https://raw.githubusercontent.com/Curso-Fullstack-MEAN-Octubre2017/Antonio-SanBlas/master/public/images/lista-citas.PNG)
 
 
-## Implementaci髇 
+## Implementaci贸n 
 
 ### Ejemplo del CRUD de Pets
 
@@ -120,7 +119,7 @@ https://github.com/Curso-Fullstack-MEAN-Octubre2017/Antonio-SanBlas/blob/master/
 2- Servicios REST:
 https://github.com/Curso-Fullstack-MEAN-Octubre2017/Antonio-SanBlas/blob/master/app.js#L45
 
-a. Enlace a la linea donde esta la definici髇 de la url REST
+a. Enlace a la linea donde esta la definici贸n de la url REST
 https://github.com/Curso-Fullstack-MEAN-Octubre2017/Antonio-SanBlas/blob/master/routes/customer-managament.js#L5
 
 3- Controlador Angular
@@ -130,7 +129,7 @@ https://github.com/Curso-Fullstack-MEAN-Octubre2017/Antonio-SanBlas/blob/master/
 b. Componente.html
 https://github.com/Curso-Fullstack-MEAN-Octubre2017/Antonio-SanBlas/blob/master/public/app/customer-module/customer-module.html
 
-c. Configuraci髇 del M骴ulo
+c. Configuraci贸n del M贸dulo
 https://github.com/Curso-Fullstack-MEAN-Octubre2017/Antonio-SanBlas/blob/master/public/app/app.module.js
 
 d. Ruta Angular
